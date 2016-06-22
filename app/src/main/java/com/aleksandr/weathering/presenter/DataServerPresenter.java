@@ -1,22 +1,13 @@
 package com.aleksandr.weathering.presenter;
 
-import android.app.AlarmManager;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.os.SystemClock;
 import android.util.Log;
 
 import com.aleksandr.weathering.WeatheringApp;
 import com.aleksandr.weathering.model.TimeOutCacheLife;
-import com.aleksandr.weathering.model.WeatherReceiver;
 import com.aleksandr.weathering.model.allWeather.AllWeather;
-import com.aleksandr.weathering.model.allWeather.Temp;
-import com.aleksandr.weathering.model.allWeather.Weather;
 import com.aleksandr.weathering.model.allWeather.WeatherMain;
-import com.aleksandr.weathering.model.currentWeather.Sys;
-import com.aleksandr.weathering.model.dataBase.Contract;
 import com.aleksandr.weathering.model.serverAPI.ServerAPI;
 import com.aleksandr.weathering.presenter.interfaces.DataServerInterfaces;
 import com.aleksandr.weathering.utils.Constants;
