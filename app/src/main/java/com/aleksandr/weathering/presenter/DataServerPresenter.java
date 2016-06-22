@@ -65,7 +65,7 @@ public class DataServerPresenter {
 
         timeOutCacheLife = new TimeOutCacheLife(context);
 
-        mains = getData();
+        mains = timeOutCacheLife.getData();
         if (mains != null && mains.size() > 1){
             Log.e(TAG, "createDataWeather: IN CACHE");
             dataServerInterfaces.getData(mains);
@@ -78,7 +78,7 @@ public class DataServerPresenter {
                 @Override
                 public void onResponse(Call<AllWeather> call, Response<AllWeather> response) {
 
-                    Log.e(TAG, "onResponse: IN CACHE");
+                    Log.e(TAG, "onResponse: NOT IN CACHE");
 
                     list = response.body().getList();
 
@@ -94,7 +94,7 @@ public class DataServerPresenter {
                     }
 
                     dataServerInterfaces.getData(weatherMains);
-                    putData(weatherMains);
+                    timeOutCacheLife.putData(weatherMains);
                 }
 
                 @Override
@@ -105,34 +105,5 @@ public class DataServerPresenter {
         }
     }
 
-    public void putData(List<WeatherMain> lists) {
-        for (WeatherMain weatherMain : lists) {
-            ContentValues values = new ContentValues();
-            values.put(Contract.TemperatureEntry.COLUMN_ICON, weatherMain.getImg());
-            values.put(Contract.TemperatureEntry.COLUMN_DATE, weatherMain.getDay());
-            values.put(Contract.TemperatureEntry.COLUMN_DESCRIPTION, weatherMain.getDescription());
-            values.put(Contract.TemperatureEntry.COLUMN_MIN_TEMP, weatherMain.getMinTemperature());
-            values.put(Contract.TemperatureEntry.COLUMN_MAX_TEMP, weatherMain.getMaxTemperature());
-            context.getContentResolver().insert(Contract.TemperatureEntry.CONTENT_URI, values);
-        }
-    }
 
-    public List<WeatherMain> getData() {
-
-        List<WeatherMain> wm = null;
-        String[] projection = {Contract.TemperatureEntry.COLUMN_ICON, Contract.TemperatureEntry.COLUMN_DATE, Contract.TemperatureEntry.COLUMN_DESCRIPTION, Contract.TemperatureEntry.COLUMN_MIN_TEMP, Contract.TemperatureEntry.COLUMN_MAX_TEMP};
-        Cursor cursor = context.getContentResolver().query(Contract.TemperatureEntry.CONTENT_URI, projection, null, null, null);
-
-        while (cursor.moveToNext()) {
-            String icon = cursor.getString(cursor.getColumnIndex(Contract.TemperatureEntry.COLUMN_ICON));
-            int date = cursor.getInt(cursor.getColumnIndex(Contract.TemperatureEntry.COLUMN_DATE));
-            String description = cursor.getString(cursor.getColumnIndex(Contract.TemperatureEntry.COLUMN_DESCRIPTION));
-            double minTemp = cursor.getDouble(cursor.getColumnIndex(Contract.TemperatureEntry.COLUMN_MIN_TEMP));
-            double maxTemp = cursor.getDouble(cursor.getColumnIndex(Contract.TemperatureEntry.COLUMN_MAX_TEMP));
-            wm.add(new WeatherMain(icon,date,description,minTemp,maxTemp));
-        }
-
-        cursor.close();
-        return wm;
-    }
 }
