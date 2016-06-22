@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:entries="@array/lang"
+        android:entryValues="@array/lang_name"
+        android:key="lang"
+        android:title="Language"
+        android:summary="Select language"
+        android:defaultValue="ua"
+        />
+    <ListPreference
+        android:key="city"
+        android:title="City"
+        android:entries="@array/city"
+        android:entryValues="@array/city_name"
+        android:defaultValue="Kyiv,ua"
+        android:summary="Select city"
+        />
+    <ListPreference
+        android:entries="@array/units"
+        android:entryValues="@array/units_name"
+        android:key="units"
+        android:summary="Select units"
+        android:title="Units"
+        android:defaultValue="metric"/>
+</PreferenceScreen>
