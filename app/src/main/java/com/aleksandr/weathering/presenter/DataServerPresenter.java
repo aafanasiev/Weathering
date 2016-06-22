@@ -3,7 +3,6 @@ package com.aleksandr.weathering.presenter;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
-
 import com.aleksandr.weathering.WeatheringApp;
 import com.aleksandr.weathering.model.TimeOutCacheLife;
 import com.aleksandr.weathering.model.allWeather.AllWeather;
