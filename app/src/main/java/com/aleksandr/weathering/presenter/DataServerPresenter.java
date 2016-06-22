@@ -30,9 +30,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * Created by Aleksandr on 07.06.2016.
- */
 public class DataServerPresenter {
 
     public static final String TAG = DataServerPresenter.class.getSimpleName();
