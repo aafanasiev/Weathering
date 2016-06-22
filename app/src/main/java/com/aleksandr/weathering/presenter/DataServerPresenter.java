@@ -54,10 +54,6 @@ public class DataServerPresenter {
         this.dataServerInterfaces = dataServerInterfaces;
     }
 
-//    public DataServerPresenter(Context context) {
-//        this.context = context;
-//    }
-
     public void createDataWeather() {
 
         timeOutCacheLife = new TimeOutCacheLife(context);
