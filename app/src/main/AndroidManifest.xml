@@ -27,6 +27,14 @@
             android:authorities="com.aleksandr.weathering.model.dataBase"
             android:name=".model.dataBase.Providers"/>
 
+        <receiver android:name=".model.WeatherReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            </receiver>
+
+
         <activity
             android:name=".ui.activities.PrefActivity"
             android:label="@string/app_name" />

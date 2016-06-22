@@ -11,6 +11,7 @@ import android.util.Log;
 import com.aleksandr.weathering.model.allWeather.WeatherMain;
 import com.aleksandr.weathering.model.dataBase.Contract;
 import com.aleksandr.weathering.model.dataBase.DataBaseHelper;
+import com.aleksandr.weathering.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,10 @@ public class TimeOutCacheLife {
     }
 
     public void removeCache() {
+
+//        DataBaseHelper helper = new DataBaseHelper(context);
+//        SQLiteDatabase database = helper.getWritableDatabase();
+//        database.execSQL("DROP TABLE IF EXISTS " + Contract.TemperatureEntry.TABLE_NAME);
 
         final String SELECTION_DATA = Contract.TemperatureEntry.COLUMN_DATE + " <= ?";
 
