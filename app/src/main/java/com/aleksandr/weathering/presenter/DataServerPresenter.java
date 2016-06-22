@@ -48,7 +48,6 @@ public class DataServerPresenter {
     List<WeatherMain> mains;
     TimeOutCacheLife timeOutCacheLife;
 
-
     public DataServerPresenter(Context context,DataServerInterfaces dataServerInterfaces) {
         WeatheringApp.dataComponent().inject(this);
         this.dataServerInterfaces = dataServerInterfaces;
