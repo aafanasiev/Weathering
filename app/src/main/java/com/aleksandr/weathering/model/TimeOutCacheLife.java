@@ -7,9 +7,6 @@ import android.os.SystemClock;
 
 import com.aleksandr.weathering.model.dataBase.Contract;
 
-/**
- * Created by a.afanasiev on 22.06.2016.
- */
 public class TimeOutCacheLife {
 
     private Context context;
