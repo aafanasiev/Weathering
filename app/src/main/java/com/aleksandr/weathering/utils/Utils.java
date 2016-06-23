@@ -7,7 +7,8 @@ public class Utils {
 
     public static String getDay(int a) {
         String day = "date";
-        if (((int) (System.currentTimeMillis() + 86400000) / (a * 1000)) == 1) {
+        long b = (long)a;
+        if ((System.currentTimeMillis() + 86400000) % ((b * 1000) - 36_000_000) < 86_400_000) {
             day = "Завтра";
             return day;
         } else {

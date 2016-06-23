@@ -33,22 +33,22 @@ public class TimeOutCacheLife {
 //        SQLiteDatabase database = helper.getWritableDatabase();
 //        database.execSQL("DROP TABLE IF EXISTS " + Contract.TemperatureEntry.TABLE_NAME);
 
-        final String SELECTION_DATA = Contract.TemperatureEntry.COLUMN_DATE + " <= ?";
-
-        String[] selectionArgs = {String.valueOf((System.currentTimeMillis() / 1000))};
-
-        Cursor cursorCache = context.getContentResolver().query(Contract.TemperatureEntry.CONTENT_URI,
-                new String[]{Contract.TemperatureEntry.COLUMN_MIN_TEMP}, SELECTION_DATA, selectionArgs, null);
-
-        if (cursorCache != null && cursorCache.moveToFirst()) {
-            do {
-                String deleteCache = cursorCache.getString(cursorCache.getColumnIndex(Contract.TemperatureEntry.COLUMN_MIN_TEMP));
-                context.getContentResolver().delete(Contract.TemperatureEntry.CONTENT_URI, Contract.TemperatureEntry.COLUMN_MIN_TEMP + "=?",
-                        new String[]{deleteCache});
-
-            } while (cursorCache.moveToNext());
-
-        }
+//        final String SELECTION_DATA = Contract.TemperatureEntry.COLUMN_DATE + " <= ?";
+//
+//        String[] selectionArgs = {String.valueOf((System.currentTimeMillis() / 1000))};
+//
+//        Cursor cursorCache = context.getContentResolver().query(Contract.TemperatureEntry.CONTENT_URI,
+//                new String[]{Contract.TemperatureEntry.COLUMN_MIN_TEMP}, SELECTION_DATA, selectionArgs, null);
+//
+//        if (cursorCache != null && cursorCache.moveToFirst()) {
+//            do {
+//                String deleteCache = cursorCache.getString(cursorCache.getColumnIndex(Contract.TemperatureEntry.COLUMN_MIN_TEMP));
+//                context.getContentResolver().delete(Contract.TemperatureEntry.CONTENT_URI, Contract.TemperatureEntry.COLUMN_MIN_TEMP + "=?",
+//                        new String[]{deleteCache});
+//
+//            } while (cursorCache.moveToNext());
+//
+//        }
         Log.e("TAGSS", "removeCache: DELETE CACHE");
     }
 
@@ -58,7 +58,7 @@ public class TimeOutCacheLife {
 //                    SystemClock.elapsedRealtime(), 30000,
 //                    WeatherReceiver.makeReceiver(context));
 
-            manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 3000, WeatherReceiver.makeReceiver(context));
+            manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 3000000, WeatherReceiver.makeReceiver(context));
 //            manager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,SystemClock.elapsedRealtime(),3000,WeatherReceiver.makeReceiver(context));
         }
     }

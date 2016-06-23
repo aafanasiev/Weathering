@@ -118,28 +118,28 @@ public class MainActivity extends AppCompatActivity implements DataServerInterfa
             mainList.add(new WeatherMain(list.get(i).getImg(), list.get(i).getDay(), list.get(i).getDescription(), list.get(i).getMinTemperature(), list.get(i).getMaxTemperature()));
         }
 
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = false;
-            int scrollRange = -1;
-
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1){
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0){
-                    collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
-                    collapsingToolbarLayout.setExpandedTitleMarginStart(30);
-                    collapsingToolbarLayout.setTitle(preferences.getString("city", "Город не выбран") + ",    " + Utils.getCurrentTemperature(mainList.get(0).getMaxTemperature()) + " " + mainList.get(0).getDescription());
-                    isShow = true;
-                    toolbar.setTitle("");
-                } else if (isShow){
-                    collapsingToolbarLayout.setTitle(" ");
-                    isShow = false;
-                    toolbar.setTitle("");
-                }
-            }
-        });
+//        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+//            boolean isShow = false;
+//            int scrollRange = -1;
+//
+//            @Override
+//            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+//                if (scrollRange == -1){
+//                    scrollRange = appBarLayout.getTotalScrollRange();
+//                }
+//                if (scrollRange + verticalOffset == 0){
+//                    collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
+//                    collapsingToolbarLayout.setExpandedTitleMarginStart(30);
+//                    collapsingToolbarLayout.setTitle(preferences.getString("city", "Город не выбран") + ",    " + Utils.getCurrentTemperature(mainList.get(0).getMaxTemperature()) + " " + mainList.get(0).getDescription());
+//                    isShow = true;
+//                    toolbar.setTitle("");
+//                } else if (isShow){
+//                    collapsingToolbarLayout.setTitle(" ");
+//                    isShow = false;
+//                    toolbar.setTitle("");
+//                }
+//            }
+//        });
 
 
     }
