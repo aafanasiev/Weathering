@@ -12,7 +12,7 @@ public class Utils {
             day = "Завтра";
             return day;
         } else {
-            switch ((a / (60 * 60 * 24)) % 7) {
+            switch (((a-36000000) / (60 * 60 * 24)) % 7) {
                 case 0:
                     day = "Четверг";
                     return day;

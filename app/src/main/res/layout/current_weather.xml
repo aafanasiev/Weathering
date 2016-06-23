@@ -2,73 +2,194 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical">
 
+
     <LinearLayout
-        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="КИЕВ"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/delta_temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="23 - 29"
+            android:textColor="#FFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="2">
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TextView
+                android:id="@+id/a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/cur_temp"
-                android:text="+15"
-                android:textSize="50dp"
-                android:gravity="center_horizontal" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/cur_desc"
-                android:text="Oblachno"
-                android:textSize="25dp"
-                android:gravity="center_horizontal" />
+                android:layout_marginBottom="15dp"
+                android:text="Monday"
+                android:textColor="#FFF" />
 
+            <TextView
+                android:id="@+id/b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="23/06/2016"
+                android:textColor="#FFF" />
+
+            <TextView
+                android:id="@+id/c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="Wind: 6 km/h"
+                android:textColor="#FFF" />
+
+            <TextView
+                android:id="@+id/d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="Vlaga: 30%"
+                android:textColor="#FFF" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/weather_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sunny" />
+
+            <TextView
+                android:id="@+id/temp_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Облачно"
+                android:textColor="#FFF" />
+        </LinearLayout>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="3">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/wea"
-            android:layout_gravity="center_horizontal" />
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/text_temp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="+35"
+                android:textColor="#FFF"
+                android:textSize="70dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:textIsSelectable="true" />
         </FrameLayout>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Presure : 153"
-            android:layout_weight="1"
-            android:gravity="center_horizontal" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Presure : 153"
-            android:gravity="center_horizontal" />
 
     </LinearLayout>
+
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="50dp"-->
+
+    <!--android:orientation="horizontal">-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="2"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/cur_temp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:gravity="center_horizontal"-->
+    <!--android:text="+15"-->
+    <!--android:textSize="70dp" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/cur_desc"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:gravity="center_horizontal"-->
+    <!--android:text="Oblachno"-->
+    <!--android:textSize="25dp" />-->
+
+    <!--</LinearLayout>-->
+
+    <!--<FrameLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="3">-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:src="@drawable/wea" />-->
+    <!--</FrameLayout>-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/wind"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:gravity="center_horizontal"-->
+    <!--android:text="Presure : 153" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/presure"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:gravity="center_horizontal"-->
+    <!--android:text="Presure : 153" />-->
+
+    <!--</LinearLayout>-->
 
     <TextView
         android:id="@+id/currentWeather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SOME TEXT"
-        />
+        android:text="SOME TEXT" />
 
 </LinearLayout>
