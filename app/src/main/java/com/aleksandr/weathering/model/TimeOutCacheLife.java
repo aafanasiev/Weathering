@@ -29,8 +29,11 @@ public class TimeOutCacheLife {
 
     public void removeCache() {
 
-//        DataBaseHelper helper = new DataBaseHelper(context);
-//        SQLiteDatabase database = helper.getWritableDatabase();
+        DataBaseHelper helper = new DataBaseHelper(context);
+        SQLiteDatabase database = helper.getWritableDatabase();
+
+        database.delete(Contract.TemperatureEntry.TABLE_NAME, null,null);
+
 //        database.execSQL("DROP TABLE IF EXISTS " + Contract.TemperatureEntry.TABLE_NAME);
 
 //        final String SELECTION_DATA = Contract.TemperatureEntry.COLUMN_DATE + " <= ?";
@@ -53,14 +56,14 @@ public class TimeOutCacheLife {
     }
 
     private void cleanCache(Context context) {
-        if (!isTimeClean(context)) {
+//        if (!isTimeClean(context)) {
 //            manager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-//                    SystemClock.elapsedRealtime(), 30000,
+//                    SystemClock.elapsedRealtime(), 3000,
 //                    WeatherReceiver.makeReceiver(context));
 
-            manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 3000000, WeatherReceiver.makeReceiver(context));
-//            manager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,SystemClock.elapsedRealtime(),3000,WeatherReceiver.makeReceiver(context));
-        }
+            manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+200000, 120000, WeatherReceiver.makeReceiver(context));
+//            manager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime(), 600000, WeatherReceiver.makeReceiver(context));
+//        }
     }
 
     private boolean isTimeClean(Context context) {
