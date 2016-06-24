@@ -6,18 +6,96 @@ package com.aleksandr.weathering.model.allWeather;
 public class WeatherMain {
 
     private String img;
-//    private double temperature;
     private int day;
     private String description;
     private double minTemperature;
     private double maxTemperature;
 
-    public WeatherMain(String img, int day, String description, double minTemperature, double maxTemperature) {
+    private double mornTemperature;
+    private double nightTemperature;
+    private double pressure;
+    private int humidity;
+    private double wind;
+    private int cloud;
+    private double rain;
+
+//    public WeatherMain(String img, int day, String description, double minTemperature, double maxTemperature) {
+//        this.img = img;
+//        this.day = day;
+//        this.description = description;
+//        this.minTemperature = minTemperature;
+//        this.maxTemperature = maxTemperature;
+//    }
+
+    public WeatherMain(String img, int day, String description, double minTemperature, double maxTemperature, double mornTemperature, double nightTemperature, double pressure, int humidity, double wind, int cloud, double rain) {
         this.img = img;
         this.day = day;
         this.description = description;
         this.minTemperature = minTemperature;
         this.maxTemperature = maxTemperature;
+        this.mornTemperature = mornTemperature;
+        this.nightTemperature = nightTemperature;
+        this.pressure = pressure;
+        this.humidity = humidity;
+        this.wind = wind;
+        this.cloud = cloud;
+        this.rain = rain;
+    }
+
+    public double getMornTemperature() {
+        return mornTemperature;
+    }
+
+    public void setMornTemperature(double mornTemperature) {
+        this.mornTemperature = mornTemperature;
+    }
+
+    public double getNightTemperature() {
+        return nightTemperature;
+    }
+
+    public void setNightTemperature(double nightTemperature) {
+        this.nightTemperature = nightTemperature;
+    }
+
+    public double getPressure() {
+        return pressure;
+    }
+
+    public void setPressure(double pressure) {
+        this.pressure = pressure;
+    }
+
+    public int getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(int humidity) {
+        this.humidity = humidity;
+    }
+
+    public double getWind() {
+        return wind;
+    }
+
+    public void setWind(double wind) {
+        this.wind = wind;
+    }
+
+    public int getCloud() {
+        return cloud;
+    }
+
+    public void setCloud(int cloud) {
+        this.cloud = cloud;
+    }
+
+    public double getRain() {
+        return rain;
+    }
+
+    public void setRain(double rain) {
+        this.rain = rain;
     }
 
     public String getImg() {
@@ -59,25 +137,4 @@ public class WeatherMain {
     public void setMaxTemperature(double maxTemperature) {
         this.maxTemperature = maxTemperature;
     }
-
-    //    public WeatherMain(double temperature, String description) {
-//        this.temperature = temperature;
-//        this.description = description;
-//    }
-//
-//    public double getTemperature() {
-//        return temperature;
-//    }
-//
-//    public void setTemperature(double temperature) {
-//        this.temperature = temperature;
-//    }
-//
-//    public String getDescription() {
-//        return description;
-//    }
-//
-//    public void setDescription(String description) {
-//        this.description = description;
-//    }
 }

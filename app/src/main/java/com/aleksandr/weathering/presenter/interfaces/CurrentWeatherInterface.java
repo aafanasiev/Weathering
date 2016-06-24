@@ -1,6 +1,7 @@
 package com.aleksandr.weathering.presenter.interfaces;
 
 import com.aleksandr.weathering.model.currentWeather.CurrentWeather;
+import com.aleksandr.weathering.model.currentWeather.WeatherMainCurrent;
 
 import retrofit2.Response;
 
@@ -9,6 +10,6 @@ import retrofit2.Response;
  */
 public interface CurrentWeatherInterface {
 
-    void getCurrentWeather(Response<CurrentWeather> response);
+    void getCurrentWeather(WeatherMainCurrent weatherMainCurrent);
 
 }

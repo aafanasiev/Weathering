@@ -8,188 +8,115 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_weight="2"
             android:text="КИЕВ"
-            android:textColor="#FFF" />
+            android:textColor="#FFF"
+            android:textSize="25dp" />
 
-        <TextView
-            android:id="@+id/delta_temp"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="23 - 29"
-            android:textColor="#FFF" />
+            android:layout_weight="3"
+            android:layout_marginRight="5dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textColor="#FFF" />
+            <TextView
+                android:id="@+id/day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textColor="#FFF" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/a"
+                android:id="@+id/text_temp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:text="Monday"
-                android:textColor="#FFF" />
-
-            <TextView
-                android:id="@+id/b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:text="23/06/2016"
-                android:textColor="#FFF" />
-
-            <TextView
-                android:id="@+id/c"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:text="Wind: 6 km/h"
-                android:textColor="#FFF" />
-
-            <TextView
-                android:id="@+id/d"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:text="Vlaga: 30%"
-                android:textColor="#FFF" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/weather_image"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/sunny" />
+                android:gravity="center_horizontal"
+                android:textColor="#fff"
+                android:textSize="85dp" />
 
             <TextView
                 android:id="@+id/temp_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Облачно"
-                android:textColor="#FFF" />
+                android:gravity="center_horizontal"
+                android:textColor="#fff"
+                android:textSize="25dp" />
+
         </LinearLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="3">
 
-            <TextView
-                android:id="@+id/text_temp"
+            <ImageView
+                android:id="@+id/weather_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="+35"
-                android:textColor="#FFF"
-                android:textSize="70dp"
-                android:layout_gravity="center_vertical"
-                android:gravity="center_vertical"
-                android:textIsSelectable="true" />
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/wea" />
         </FrameLayout>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/wind"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Presure : 153"
+            android:textColor="#fff" />
+
+        <TextView
+            android:id="@+id/humidity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Presure : 153"
+            android:textColor="#fff" />
 
     </LinearLayout>
 
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginTop="50dp"-->
-
-    <!--android:orientation="horizontal">-->
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_weight="2"-->
-    <!--android:orientation="vertical">-->
-
     <!--<TextView-->
-    <!--android:id="@+id/cur_temp"-->
-    <!--android:layout_width="match_parent"-->
+    <!--android:id="@+id/currentWeather"-->
+    <!--android:layout_width="wrap_content"-->
     <!--android:layout_height="wrap_content"-->
-    <!--android:gravity="center_horizontal"-->
-    <!--android:text="+15"-->
-    <!--android:textSize="70dp" />-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/cur_desc"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:gravity="center_horizontal"-->
-    <!--android:text="Oblachno"-->
-    <!--android:textSize="25dp" />-->
-
-    <!--</LinearLayout>-->
-
-    <!--<FrameLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:layout_weight="3">-->
-
-    <!--<ImageView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:layout_gravity="center_horizontal"-->
-    <!--android:src="@drawable/wea" />-->
-    <!--</FrameLayout>-->
-    <!--</LinearLayout>-->
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginTop="10dp"-->
-    <!--android:orientation="horizontal">-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/wind"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_weight="1"-->
-    <!--android:gravity="center_horizontal"-->
-    <!--android:text="Presure : 153" />-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/presure"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_weight="1"-->
-    <!--android:gravity="center_horizontal"-->
-    <!--android:text="Presure : 153" />-->
-
-    <!--</LinearLayout>-->
-
-    <TextView
-        android:id="@+id/currentWeather"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SOME TEXT" />
+    <!--android:text="SOME TEXT" />-->
 
 </LinearLayout>

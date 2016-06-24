@@ -2,6 +2,7 @@ package com.aleksandr.weathering.di;
 
 import com.aleksandr.weathering.presenter.CurrentWeatherPresenter;
 import com.aleksandr.weathering.presenter.DataServerPresenter;
+import com.aleksandr.weathering.ui.activities.DetailActivity;
 import com.aleksandr.weathering.ui.activities.MainActivity;
 import com.aleksandr.weathering.ui.fragments.CurrentWeatherFragment;
 
@@ -23,5 +24,7 @@ public interface DataComponent {
     void inject(CurrentWeatherFragment currentWeatherFragment);
 
     void inject(CurrentWeatherPresenter currentWeatherPresenter);
+
+    void inject(DetailActivity detailActivity);
 
 }

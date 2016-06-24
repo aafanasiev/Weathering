@@ -26,6 +26,13 @@ public class Contract {
         public static final String COLUMN_DESCRIPTION = "description";
         public static final String COLUMN_MIN_TEMP = "min_temp";
         public static final String COLUMN_MAX_TEMP = "max_temp";
+        public static final String COLUMN_MORNING_TEMP = "morning_temp";
+        public static final String COLUMN_NIGHT_TEMP = "night_temp";
+        public static final String COLUMN_PRESSURE = "pressure";
+        public static final String COLUMN_HUMIDITY = "humidity";
+        public static final String COLUMN_WIND = "wind";
+        public static final String COLUMN_CLOUD = "cloud";
+        public static final String COLUMN_RAIN = "rain";
 
     }
 

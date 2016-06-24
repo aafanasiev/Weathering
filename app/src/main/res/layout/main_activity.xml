@@ -1,15 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0277BD"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="twetpwerklwekrl" />
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/detail_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="3"
+            android:text="CITY"
+            android:textColor="#fff" />
+
+        <TextView
+            android:id="@+id/detail_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_weight="2"
+            android:gravity="right"
+            android:text="DATE"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/detail_temperature"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="+35"
+            android:textColor="#fff"
+            android:textSize="85sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/detail_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sunny" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/detail_nmorn_temp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="@string/morn_night"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/detail_morn_temp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textColor="#fff" />
+        </TableRow>
+
+        <TableRow android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/detail_nnight_temp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="@string/night_temp"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/detail_night_temp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textColor="#fff" />
+        </TableRow>
+        <TableRow android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/detail_npresure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="@string/pressure"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/detail_presure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textColor="#fff" />
+        </TableRow>
+
+
+
+
+
+
+
+        <TableRow android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/detail_nrain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="@string/rain"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/detail_rain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textColor="#fff" />
+        </TableRow>
+
+        <TableRow android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/detail_nwind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="@string/wind"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/detail_wind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textColor="#fff" />
+        </TableRow>
+        <TableRow android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/detail_nhumidity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="@string/humidity"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/detail_humidity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textColor="#fff" />
+        </TableRow>
+        <TableRow android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/detail_ncloud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="@string/cloud"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/detail_cloud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textColor="#fff" />
+        </TableRow>
+    </TableLayout>
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="twetpwerklwekrl" />-->
 
 
 </LinearLayout>

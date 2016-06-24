@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.aleksandr.weathering.WeatheringApp;
 import com.aleksandr.weathering.model.currentWeather.CurrentWeather;
+import com.aleksandr.weathering.model.currentWeather.WeatherMainCurrent;
 import com.aleksandr.weathering.model.serverAPI.ServerAPI;
 import com.aleksandr.weathering.presenter.interfaces.CurrentWeatherInterface;
 import com.aleksandr.weathering.utils.Constants;
@@ -38,11 +39,16 @@ public class CurrentWeatherPresenter {
     }
 
     public void createCurrentWeather(){
-        serverAPI.getCurrentWeather(preferences.getString("city","Kyiv"),preferences.getString("units","metric"),preferences.getString("lang","ua"), Constants.IDS).enqueue(
+        serverAPI.getCurrentWeather(preferences.getString("city","Kyiv"),preferences.getString("units","metric"),preferences.getString("lang","ru"), Constants.IDS).enqueue(
                 new Callback<CurrentWeather>() {
                     @Override
                     public void onResponse(Call<CurrentWeather> call, Response<CurrentWeather> response) {
-                        currentWeatherInterface.getCurrentWeather(response);
+
+                        CurrentWeather currentWeather = response.body();
+                        WeatherMainCurrent weatherMainCurrent = new WeatherMainCurrent(currentWeather.getWeather().get(0).getDescription(),
+                                currentWeather.getMain().getTemp(), currentWeather.getWind().getSpeed(), currentWeather.getMain().getTempMin(), currentWeather.getMain().getTempMax(),
+                                currentWeather.getDt(), currentWeather.getMain().getHumidity(),currentWeather.getWeather().get(0).getIcon());
+                        currentWeatherInterface.getCurrentWeather(weatherMainCurrent);
                     }
 
                     @Override

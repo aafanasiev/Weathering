@@ -20,8 +20,11 @@ import com.aleksandr.weathering.R;
 import com.aleksandr.weathering.WeatheringApp;
 import com.aleksandr.weathering.model.allWeather.AllWeather;
 import com.aleksandr.weathering.model.allWeather.WeatherMain;
+import com.aleksandr.weathering.model.currentWeather.WeatherMainCurrent;
 import com.aleksandr.weathering.model.serverAPI.ServerAPI;
+import com.aleksandr.weathering.presenter.CurrentWeatherPresenter;
 import com.aleksandr.weathering.presenter.DataServerPresenter;
+import com.aleksandr.weathering.presenter.interfaces.CurrentWeatherInterface;
 import com.aleksandr.weathering.presenter.interfaces.DataServerInterfaces;
 import com.aleksandr.weathering.ui.adapters.WeatherAdapter;
 import com.aleksandr.weathering.ui.fragments.CurrentWeatherFragment;
@@ -37,7 +40,7 @@ import retrofit2.Response;
 /**
  * Created by Aleksandr on 06.06.2016.
  */
-public class MainActivity extends AppCompatActivity implements DataServerInterfaces {
+public class MainActivity extends AppCompatActivity implements DataServerInterfaces,CurrentWeatherInterface {
 
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements DataServerInterfa
     CurrentWeatherFragment currentWeatherFragment;
     List<WeatherMain> mainList = new ArrayList<>();
     DataServerPresenter dataServerPresenter;
+    CurrentWeatherPresenter currentWeatherPresenter;
     AppBarLayout appBarLayout;
     Toolbar toolbar;
     CollapsingToolbarLayout collapsingToolbarLayout;
@@ -68,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements DataServerInterfa
         init();
 
         dataServerPresenter.createDataWeather();
+        currentWeatherPresenter.createCurrentWeather();
     }
 
     public void init() {
@@ -89,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements DataServerInterfa
         setSupportActionBar(toolbar);
         appBarLayout = (AppBarLayout)findViewById(R.id.app_bar);
         dataServerPresenter = new DataServerPresenter(this,this);
+        currentWeatherPresenter = new CurrentWeatherPresenter(this);
     }
 
     @Override
@@ -104,43 +110,50 @@ public class MainActivity extends AppCompatActivity implements DataServerInterfa
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem menuItem = menu.add(0, 1, 0, "Preferences");
-        menuItem.setIntent(new Intent(this, PrefActivity.class));
-        return super.onCreateOptionsMenu(menu);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuItem menuItem = menu.add(0, 1, 0, "Preferences");
+//        menuItem.setIntent(new Intent(this, PrefActivity.class));
+//        return super.onCreateOptionsMenu(menu);
+//    }
 
     @Override
     public void getData(List<WeatherMain> list) {
 
         for (int i = 1; i < list.size(); i++) {
-            mainList.add(new WeatherMain(list.get(i).getImg(), list.get(i).getDay(), list.get(i).getDescription(), list.get(i).getMinTemperature(), list.get(i).getMaxTemperature()));
+            mainList.add(new WeatherMain(list.get(i).getImg(), list.get(i).getDay(), list.get(i).getDescription(), list.get(i).getMinTemperature(), list.get(i).getMaxTemperature(),
+                    list.get(i).getMornTemperature(),list.get(i).getNightTemperature(),list.get(i).getPressure(),list.get(i).getHumidity(),list.get(i).getWind(),list.get(i).getCloud(),
+                    list.get(i).getRain()));
         }
 
-//        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-//            boolean isShow = false;
-//            int scrollRange = -1;
-//
-//            @Override
-//            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-//                if (scrollRange == -1){
-//                    scrollRange = appBarLayout.getTotalScrollRange();
-//                }
-//                if (scrollRange + verticalOffset == 0){
-//                    collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
-//                    collapsingToolbarLayout.setExpandedTitleMarginStart(30);
-//                    collapsingToolbarLayout.setTitle(preferences.getString("city", "Город не выбран") + ",    " + Utils.getCurrentTemperature(mainList.get(0).getMaxTemperature()) + " " + mainList.get(0).getDescription());
-//                    isShow = true;
-//                    toolbar.setTitle("");
-//                } else if (isShow){
-//                    collapsingToolbarLayout.setTitle(" ");
-//                    isShow = false;
-//                    toolbar.setTitle("");
-//                }
-//            }
-//        });
 
 
+
+    }
+
+    @Override
+    public void getCurrentWeather(final WeatherMainCurrent weatherMainCurrent) {
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = false;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1){
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0){
+                    collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
+                    collapsingToolbarLayout.setExpandedTitleMarginStart(30);
+                    collapsingToolbarLayout.setTitle(preferences.getString("city", "Киев") + ", " + Utils.getCurrentTemperature(weatherMainCurrent.getTemperature()) + " " + weatherMainCurrent.getDescription());
+                    isShow = true;
+                    toolbar.setTitle("");
+                } else if (isShow){
+                    collapsingToolbarLayout.setTitle(" ");
+                    isShow = false;
+                    toolbar.setTitle("");
+                }
+            }
+        });
     }
 }

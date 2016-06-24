@@ -55,7 +55,7 @@ public class DataServerPresenter {
 
         else {
 
-            Call<AllWeather> allWeatherCall = serverAPI.getAllWeather(preferences.getString("city", "Kyiv"), preferences.getString("lang", "ua"), Constants.MODE, preferences.getString("units", "metric"), Constants.COUNT, Constants.IDS);
+            Call<AllWeather> allWeatherCall = serverAPI.getAllWeather(preferences.getString("city", "Kyiv"), preferences.getString("lang", "ru"), Constants.MODE, preferences.getString("units", "metric"), Constants.COUNT, Constants.IDS);
             allWeatherCall.enqueue(new Callback<AllWeather>() {
                 @Override
                 public void onResponse(Call<AllWeather> call, Response<AllWeather> response) {
@@ -72,7 +72,14 @@ public class DataServerPresenter {
                                 all.getDt(),
                                 all.getWeather().get(0).getDescription(),
                                 all.getTemp().getMin(),
-                                all.getTemp().getMax()));
+                                all.getTemp().getMax(),
+                                all.getTemp().getMorn(),
+                                all.getTemp().getNight(),
+                                all.getPressure(),
+                                all.getHumidity(),
+                                all.getSpeed(),
+                                all.getClouds(),
+                                all.getRain()));
                     }
 
                     dataServerInterfaces.getData(weatherMains);

@@ -26,7 +26,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 + Contract.TemperatureEntry.COLUMN_DATE + " INTEGER NOT NULL, "
                 + Contract.TemperatureEntry.COLUMN_DESCRIPTION + " TEXT NOT NULL, "
                 + Contract.TemperatureEntry.COLUMN_MIN_TEMP + " DOUBLE NOT NULL, "
-                + Contract.TemperatureEntry.COLUMN_MAX_TEMP + " DOUBLE NOT NULL " + ");";
+                + Contract.TemperatureEntry.COLUMN_MAX_TEMP + " DOUBLE NOT NULL, "
+                + Contract.TemperatureEntry.COLUMN_MORNING_TEMP + " DOUBLE NOT NULL, "
+                + Contract.TemperatureEntry.COLUMN_NIGHT_TEMP + " DOUBLE NOT NULL, "
+                + Contract.TemperatureEntry.COLUMN_PRESSURE + " DOUBLE NOT NULL, "
+                + Contract.TemperatureEntry.COLUMN_HUMIDITY + " INTEGER NOT NULL, "
+                + Contract.TemperatureEntry.COLUMN_WIND + " DOUBLE NOT NULL, "
+                + Contract.TemperatureEntry.COLUMN_CLOUD + " INTEGER NOT NULL, "
+                + Contract.TemperatureEntry.COLUMN_RAIN + " DOUBLE NOT NULL " + ");";
         db.execSQL(SQL_CREATE_TABLE);
     }
 
