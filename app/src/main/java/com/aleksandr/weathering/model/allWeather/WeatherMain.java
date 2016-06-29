@@ -1,8 +1,5 @@
 package com.aleksandr.weathering.model.allWeather;
 
-/**
- * Created by Aleksandr on 08.06.2016.
- */
 public class WeatherMain {
 
     private String img;
@@ -18,14 +15,6 @@ public class WeatherMain {
     private double wind;
     private int cloud;
     private double rain;
-
-//    public WeatherMain(String img, int day, String description, double minTemperature, double maxTemperature) {
-//        this.img = img;
-//        this.day = day;
-//        this.description = description;
-//        this.minTemperature = minTemperature;
-//        this.maxTemperature = maxTemperature;
-//    }
 
     public WeatherMain(String img, int day, String description, double minTemperature, double maxTemperature, double mornTemperature, double nightTemperature, double pressure, int humidity, double wind, int cloud, double rain) {
         this.img = img;

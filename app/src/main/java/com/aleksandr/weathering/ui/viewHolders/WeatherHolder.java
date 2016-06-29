@@ -8,9 +8,6 @@ import android.widget.TextView;
 
 import com.aleksandr.weathering.R;
 
-/**
- * Created by a.afanasiev on 15.06.2016.
- */
 public class WeatherHolder extends RecyclerView.ViewHolder {
 
     public TextView temperature;

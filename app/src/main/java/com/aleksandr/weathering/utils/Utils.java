@@ -1,22 +1,14 @@
 package com.aleksandr.weathering.utils;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
 
 import com.aleksandr.weathering.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-/**
- * Created by a.afanasiev on 14.06.2016.
- */
 public class Utils {
-
-    Context context;
 
     public static String getDay(int a, Context context) {
         String day = "date";
@@ -47,7 +39,6 @@ public class Utils {
                 case 6:
                     day = context.getString(R.string.wednesday);
                     return day;
-
             }
             return day;
         }
@@ -56,13 +47,10 @@ public class Utils {
     public static Drawable getImage(String a, Context context){
 
         Drawable drawable = null;
-        ImageView imageView = new ImageView(context.getApplicationContext());
-        Bitmap b = null;
 
         switch (a){
             case "01d":
                 drawable = context.getResources().getDrawable(R.drawable.sunny);
-
                 return drawable;
             case "10d":
                 drawable = context.getResources().getDrawable(R.drawable.rainny);
@@ -73,7 +61,6 @@ public class Utils {
             default:
                 drawable = context.getResources().getDrawable(R.drawable.sunny);
         }
-
         return drawable;
     }
 

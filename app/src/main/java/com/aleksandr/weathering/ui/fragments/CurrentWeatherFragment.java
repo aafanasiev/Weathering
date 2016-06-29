@@ -34,9 +34,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * Created by a.afanasiev on 14.06.2016.
- */
 public class CurrentWeatherFragment extends Fragment implements CurrentWeatherInterface {
 
     @Inject
@@ -48,21 +45,17 @@ public class CurrentWeatherFragment extends Fragment implements CurrentWeatherIn
 //    @Inject
 //    SharedPreferences preferences;
 
-    SharedPreferences preferences;
+    private SharedPreferences preferences;
+    private CurrentWeatherPresenter currentWeatherPresenter;
 
-    CurrentWeatherPresenter currentWeatherPresenter;
-
-    WeatherMainCurrent weatherMainCurrent;
-
-    TextView deltaTemp;
-    TextView curTemp;
-    TextView curWind;
-    TextView curDesc;
-    TextView curCity;
-    TextView curDate;
-    TextView curDay;
-    TextView curHumidity;
-    ImageView curImage;
+    private TextView curTemp;
+    private TextView curWind;
+    private TextView curDesc;
+    private TextView curCity;
+    private TextView curDate;
+    private TextView curDay;
+    private TextView curHumidity;
+    private ImageView curImage;
 
     public CurrentWeatherFragment() {
     }
@@ -74,7 +67,6 @@ public class CurrentWeatherFragment extends Fragment implements CurrentWeatherIn
         WeatheringApp.dataComponent().inject(this);
 
         View v = inflater.inflate(R.layout.current_weather, container, false);
-//        deltaTemp = (TextView) v.findViewById(R.id.delta_temp);
         curTemp = (TextView) v.findViewById(R.id.text_temp);
         curCity = (TextView) v.findViewById(R.id.city);
         curDate = (TextView) v.findViewById(R.id.date);
@@ -110,7 +102,5 @@ public class CurrentWeatherFragment extends Fragment implements CurrentWeatherIn
         Utils.getImage(weatherMainCurrent.getImage(), context);
 
         curImage.setImageDrawable(Utils.getImage(weatherMainCurrent.getImage(),context));
-
-//        textView.setText(weatherMainCurrent.getDescription() + " " + weatherMainCurrent.getTemperature() + " " + weatherMainCurrent.getWind());
     }
 }

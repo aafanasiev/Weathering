@@ -13,27 +13,22 @@ import com.aleksandr.weathering.utils.Utils;
 
 import javax.inject.Inject;
 
-/**
- * Created by a.afanasiev on 14.06.2016.
- */
 public class DetailActivity extends Activity {
 
     @Inject
     SharedPreferences preferences;
 
-    public TextView date;
-    public TextView city;
-    public TextView detailTemp;
-    public TextView tempMorning;
-    public TextView tempNight;
-    public ImageView detailImage;
-    public TextView detailPresure;
-    public TextView detailHamidity;
-    public TextView detailRain;
-    public TextView detailWind;
-    public TextView detailCloud;
-
-
+    private TextView date;
+    private TextView city;
+    private TextView detailTemp;
+    private TextView tempMorning;
+    private TextView tempNight;
+    private ImageView detailImage;
+    private TextView detailPresure;
+    private TextView detailHamidity;
+    private TextView detailRain;
+    private TextView detailWind;
+    private TextView detailCloud;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +50,6 @@ public class DetailActivity extends Activity {
         date = (TextView) findViewById(R.id.detail_date);
 
         Intent intent = getIntent();
-//        t.setText(intent.getIntExtra("date", 0) + " " + intent.getDoubleExtra("tempMin", 0) + " " + intent.getDoubleExtra("tempMax", 0)
-//        + " " + intent.getStringExtra("img"));
-
         detailImage.setImageDrawable(Utils.getImage(intent.getStringExtra("img"), this));
         date.setText(Utils.getDate(intent.getIntExtra("date", 0)));
         tempNight.setText(Utils.getCurrentTemperature(intent.getDoubleExtra("tempNight", 0)));
@@ -69,7 +61,5 @@ public class DetailActivity extends Activity {
         detailRain.setText(String.valueOf(intent.getDoubleExtra("rain", 0)));
 
         city.setText(preferences.getString("city", "Киев"));
-
-
     }
 }

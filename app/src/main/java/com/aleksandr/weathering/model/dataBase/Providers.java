@@ -10,9 +10,6 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 
-/**
- * Created by a.afanasiev on 17.06.2016.
- */
 public class Providers extends ContentProvider {
 
     private static final String TAG = Providers.class.getSimpleName();
@@ -130,7 +127,7 @@ public class Providers extends ContentProvider {
         }
 
         if (rowUpdate != 0)
-            getContext().getContentResolver().notifyChange(uri,null);
+            getContext().getContentResolver().notifyChange(uri, null);
 
         return rowUpdate;
     }

@@ -22,8 +22,6 @@ import retrofit2.Response;
 
 public class DataServerPresenter {
 
-    public static final String TAG = DataServerPresenter.class.getSimpleName();
-
     @Inject
     Context context;
 
@@ -33,10 +31,12 @@ public class DataServerPresenter {
     @Inject
     ServerAPI serverAPI;
 
+    public static final String TAG = DataServerPresenter.class.getSimpleName();
+
     private DataServerInterfaces dataServerInterfaces;
-    List<com.aleksandr.weathering.model.allWeather.List> list = new ArrayList<>();
-    List<WeatherMain> mains;
-    TimeOutCacheLife timeOutCacheLife;
+    private List<com.aleksandr.weathering.model.allWeather.List> list = new ArrayList<>();
+    private List<WeatherMain> mains;
+    private TimeOutCacheLife timeOutCacheLife;
 
     public DataServerPresenter(Context context,DataServerInterfaces dataServerInterfaces) {
         WeatheringApp.dataComponent().inject(this);
@@ -52,18 +52,14 @@ public class DataServerPresenter {
             Log.e(TAG, "createDataWeather: IN CACHE");
             dataServerInterfaces.getData(mains);
         }
-
         else {
-
             Call<AllWeather> allWeatherCall = serverAPI.getAllWeather(preferences.getString("city", "Kyiv"), preferences.getString("lang", "ru"), Constants.MODE, preferences.getString("units", "metric"), Constants.COUNT, Constants.IDS);
             allWeatherCall.enqueue(new Callback<AllWeather>() {
                 @Override
                 public void onResponse(Call<AllWeather> call, Response<AllWeather> response) {
 
                     Log.e(TAG, "onResponse: NOT IN CACHE");
-
                     list = response.body().getList();
-
                     List<WeatherMain> weatherMains = new ArrayList<>();
 
                     for (com.aleksandr.weathering.model.allWeather.List all : list) {
@@ -81,11 +77,9 @@ public class DataServerPresenter {
                                 all.getClouds(),
                                 all.getRain()));
                     }
-
                     dataServerInterfaces.getData(weatherMains);
                     timeOutCacheLife.putData(weatherMains);
                 }
-
                 @Override
                 public void onFailure(Call<AllWeather> call, Throwable t) {
                     Log.e("ERROR", "Retrofit");

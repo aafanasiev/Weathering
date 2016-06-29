@@ -1,8 +1,5 @@
 package com.aleksandr.weathering.model.currentWeather;
 
-/**
- * Created by a.afanasiev on 14.06.2016.
- */
 public class WeatherMainCurrent {
 
     private String description;
@@ -14,7 +11,6 @@ public class WeatherMainCurrent {
     private int humidity;
     private String image;
 
-
     public WeatherMainCurrent(String description, double temperature, double wind, double minCurTemp, double maxCurTemp, int date, int humidity, String image) {
         this.description = description;
         this.temperature = temperature;
@@ -24,7 +20,6 @@ public class WeatherMainCurrent {
         this.date = date;
         this.humidity = humidity;
         this.image = image;
-
     }
 
     public int getDate() {

@@ -17,9 +17,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * Created by a.afanasiev on 15.06.2016.
- */
 public class CurrentWeatherPresenter {
 
     @Inject
@@ -38,8 +35,8 @@ public class CurrentWeatherPresenter {
         this.currentWeatherInterface = currentWeatherInterface;
     }
 
-    public void createCurrentWeather(){
-        serverAPI.getCurrentWeather(preferences.getString("city","Kyiv"),preferences.getString("units","metric"),preferences.getString("lang","ru"), Constants.IDS).enqueue(
+    public void createCurrentWeather() {
+        serverAPI.getCurrentWeather(preferences.getString("city", "Kyiv"), preferences.getString("units", "metric"), preferences.getString("lang", "ru"), Constants.IDS).enqueue(
                 new Callback<CurrentWeather>() {
                     @Override
                     public void onResponse(Call<CurrentWeather> call, Response<CurrentWeather> response) {
@@ -47,7 +44,7 @@ public class CurrentWeatherPresenter {
                         CurrentWeather currentWeather = response.body();
                         WeatherMainCurrent weatherMainCurrent = new WeatherMainCurrent(currentWeather.getWeather().get(0).getDescription(),
                                 currentWeather.getMain().getTemp(), currentWeather.getWind().getSpeed(), currentWeather.getMain().getTempMin(), currentWeather.getMain().getTempMax(),
-                                currentWeather.getDt(), currentWeather.getMain().getHumidity(),currentWeather.getWeather().get(0).getIcon());
+                                currentWeather.getDt(), currentWeather.getMain().getHumidity(), currentWeather.getWeather().get(0).getIcon());
                         currentWeatherInterface.getCurrentWeather(weatherMainCurrent);
                     }
 

@@ -1,8 +1,5 @@
 package com.aleksandr.weathering.utils;
 
-/**
- * Created by Aleksandr on 06.06.2016.
- */
 public class Constants {
 
     public static final String SETTINGS = "settings";
@@ -10,6 +7,5 @@ public class Constants {
     public static final String MODE = "json";
     public static final int COUNT = 15;
     public static final String IDS = "efcd21a8f54d97e56e01daa36cd6a4ce";
-
 
 }

@@ -35,23 +35,19 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import retrofit2.Response;
-
-/**
- * Created by Aleksandr on 06.06.2016.
- */
 public class MainActivity extends AppCompatActivity implements DataServerInterfaces,CurrentWeatherInterface {
 
-    RecyclerView recyclerView;
-    RecyclerView.Adapter adapter;
-    RecyclerView.LayoutManager manager;
-    CurrentWeatherFragment currentWeatherFragment;
-    List<WeatherMain> mainList = new ArrayList<>();
-    DataServerPresenter dataServerPresenter;
-    CurrentWeatherPresenter currentWeatherPresenter;
-    AppBarLayout appBarLayout;
-    Toolbar toolbar;
-    CollapsingToolbarLayout collapsingToolbarLayout;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager manager;
+    private CurrentWeatherFragment currentWeatherFragment;
+    private List<WeatherMain> mainList = new ArrayList<>();
+    private DataServerPresenter dataServerPresenter;
+    private CurrentWeatherPresenter currentWeatherPresenter;
+
+    private AppBarLayout appBarLayout;
+    private Toolbar toolbar;
+    private CollapsingToolbarLayout collapsingToolbarLayout;
 
 
     @Inject
@@ -99,15 +95,7 @@ public class MainActivity extends AppCompatActivity implements DataServerInterfa
 
     @Override
     protected void onResume() {
-
-//        String a = mainList.get(0).getImg();
-//        TextView textView = new TextView(this);
-//        textView.setText(a);
-
-
         super.onResume();
-
-
     }
 
 //    @Override
@@ -125,10 +113,6 @@ public class MainActivity extends AppCompatActivity implements DataServerInterfa
                     list.get(i).getMornTemperature(),list.get(i).getNightTemperature(),list.get(i).getPressure(),list.get(i).getHumidity(),list.get(i).getWind(),list.get(i).getCloud(),
                     list.get(i).getRain()));
         }
-
-
-
-
     }
 
     @Override

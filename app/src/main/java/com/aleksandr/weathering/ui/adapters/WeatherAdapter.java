@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import com.aleksandr.weathering.R;
 import com.aleksandr.weathering.model.allWeather.WeatherMain;
 import com.aleksandr.weathering.ui.activities.DetailActivity;
-import com.aleksandr.weathering.ui.activities.MainActivity;
 import com.aleksandr.weathering.ui.viewHolders.WeatherHolder;
 import com.aleksandr.weathering.utils.Utils;
 import com.squareup.picasso.Picasso;
@@ -18,11 +17,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by a.afanasiev on 15.06.2016.
- */
 public class WeatherAdapter extends RecyclerView.Adapter<WeatherHolder> {
-
 
     Context context;
     List<WeatherMain> mainList = new ArrayList<>();
@@ -56,18 +51,17 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherHolder> {
                 intent.putExtra("desc", mainList.get(position).getDescription());
                 intent.putExtra("date", mainList.get(position).getDay());
                 intent.putExtra("img", mainList.get(position).getImg());
-                intent.putExtra("tempMorn",mainList.get(position).getMornTemperature());
-                intent.putExtra("tempNight",mainList.get(position).getNightTemperature());
-                intent.putExtra("humidity",mainList.get(position).getHumidity());
-                intent.putExtra("pressure",mainList.get(position).getPressure());
-                intent.putExtra("rain",mainList.get(position).getRain());
-                intent.putExtra("cloud",mainList.get(position).getCloud());
-                intent.putExtra("wind",mainList.get(position).getWind());
+                intent.putExtra("tempMorn", mainList.get(position).getMornTemperature());
+                intent.putExtra("tempNight", mainList.get(position).getNightTemperature());
+                intent.putExtra("humidity", mainList.get(position).getHumidity());
+                intent.putExtra("pressure", mainList.get(position).getPressure());
+                intent.putExtra("rain", mainList.get(position).getRain());
+                intent.putExtra("cloud", mainList.get(position).getCloud());
+                intent.putExtra("wind", mainList.get(position).getWind());
                 context.startActivity(intent);
 //                overridePendingTransition(R.anim.anim_2, R.anim.anim_1);
             }
         });
-
         Picasso.with(context)
                 .load("http://openweathermap.org/img/w/" + main.getImg() + ".png")
                 .resize(150, 150)

@@ -6,14 +6,11 @@ import com.aleksandr.weathering.di.DaggerDataComponent;
 import com.aleksandr.weathering.di.DataComponent;
 import com.aleksandr.weathering.di.DataModule;
 
-/**
- * Created by Aleksandr on 06.06.2016.
- */
 public class WeatheringApp extends Application {
 
     private static DataComponent dataComponent;
 
-    public static DataComponent dataComponent(){
+    public static DataComponent dataComponent() {
         return dataComponent;
     }
 
@@ -23,13 +20,9 @@ public class WeatheringApp extends Application {
         initializeDaggerGraph();
     }
 
-
-    private void initializeDaggerGraph(){
-
+    private void initializeDaggerGraph() {
         dataComponent = DaggerDataComponent.builder()
                 .dataModule(new DataModule(this))
                 .build();
     }
-
-
 }

@@ -3,9 +3,6 @@ package com.aleksandr.weathering.model.dataBase;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-/**
- * Created by a.afanasiev on 17.06.2016.
- */
 public class Contract {
 
     public static final String CONTENT_AUTHORITY = "com.aleksandr.weathering.model.dataBase";
@@ -13,7 +10,7 @@ public class Contract {
 
     public static final String PATH_TEMPERATURE = TemperatureEntry.TABLE_NAME;
 
-    public static final class TemperatureEntry implements BaseColumns{
+    public static final class TemperatureEntry implements BaseColumns {
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_TEMPERATURE).build();
 
         public static final String CONTENT_ITEMS_TYPE = "vnd.android.cursor.dir/" + CONTENT_AUTHORITY + "/" + PATH_TEMPERATURE;
@@ -33,11 +30,7 @@ public class Contract {
         public static final String COLUMN_WIND = "wind";
         public static final String COLUMN_CLOUD = "cloud";
         public static final String COLUMN_RAIN = "rain";
-
     }
-
-
-
 }
 
 
