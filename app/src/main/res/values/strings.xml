@@ -54,6 +54,7 @@
     <string name="friday">Пятница</string>
     <string name="saturday">Суббота</string>
     <string name="sunday">Воскресенье</string>
+    <string name="tomorrow">Завтра</string>
     <string name="humidity">Влажность: </string>
     <string name="cloud">Облачность: </string>
     <string name="rain">Вероятность осадков:</string>

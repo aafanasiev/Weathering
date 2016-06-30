@@ -11,13 +11,14 @@ import java.util.Calendar;
 public class Utils {
 
     public static String getDay(int a, Context context) {
-        String day = "date";
-        long b = (long)a;
-        if ((System.currentTimeMillis() + 86400000) % ((b * 1000) ) < 86_400_000) {
-            day = "Завтра";
+        String day = "";
+        long b = (long) a;
+        if ((System.currentTimeMillis() + Constants.SECONDS_IN_DAY * Constants.TIME_IN_MILLISECONDS) %
+                ((b * Constants.TIME_IN_MILLISECONDS)) < Constants.SECONDS_IN_DAY * Constants.TIME_IN_MILLISECONDS) {
+            day = context.getString(R.string.tomorrow);
             return day;
         } else {
-            switch (((a) / (60 * 60 * 24)) % 7) {
+            switch (((a) / (Constants.SECONDS_IN_DAY)) % 7) {
                 case 0:
                     day = context.getString(R.string.thursday);
                     return day;
@@ -44,19 +45,43 @@ public class Utils {
         }
     }
 
-    public static Drawable getImage(String a, Context context){
+    public static Drawable getImage(String a, Context context) {
 
         Drawable drawable = null;
 
-        switch (a){
+        switch (a) {
             case "01d":
                 drawable = context.getResources().getDrawable(R.drawable.sunny);
                 return drawable;
-            case "10d":
+            case "02d":
+                drawable = context.getResources().getDrawable(R.drawable.some_cloud);
+                return drawable;
+            case "03d":
+                drawable = context.getResources().getDrawable(R.drawable.hadr_cloud);
+                return drawable;
+            case "04d":
+                drawable = context.getResources().getDrawable(R.drawable.hadr_cloud);
+                return drawable;
+            case "09d":
                 drawable = context.getResources().getDrawable(R.drawable.rainny);
                 return drawable;
-            case "02d":
+            case "10d":
                 drawable = context.getResources().getDrawable(R.drawable.small_rainny);
+                return drawable;
+            case "11d":
+                drawable = context.getResources().getDrawable(R.drawable.thunderstorm);
+                return drawable;
+            case "13d":
+                drawable = context.getResources().getDrawable(R.drawable.snow);
+                return drawable;
+            case "50d":
+                drawable = context.getResources().getDrawable(R.drawable.mist);
+                return drawable;
+            case "01n":
+                drawable = context.getResources().getDrawable(R.drawable.night_clear);
+                return drawable;
+            case "02n":
+                drawable = context.getResources().getDrawable(R.drawable.some_night_cloud);
                 return drawable;
             default:
                 drawable = context.getResources().getDrawable(R.drawable.sunny);
@@ -64,10 +89,10 @@ public class Utils {
         return drawable;
     }
 
-    public static String getDate(int a){
+    public static String getDate(int a) {
         String date = null;
         String dateFormat = "dd/MM/yy";
-        long dt = (long)a * 1000;
+        long dt = (long) a * Constants.TIME_IN_MILLISECONDS;
 
         SimpleDateFormat format = new SimpleDateFormat(dateFormat);
         Calendar calendar = Calendar.getInstance();
@@ -78,7 +103,7 @@ public class Utils {
         return date;
     }
 
-    public static String getCurrentTemperature(double a){
+    public static String getCurrentTemperature(double a) {
         String temp = null;
 
         temp = String.valueOf((int) a / 1) + (char) 0x00B0;
