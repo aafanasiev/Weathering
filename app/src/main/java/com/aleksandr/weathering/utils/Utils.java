@@ -90,7 +90,7 @@ public class Utils {
     }
 
     public static String getDate(int a) {
-        String date = null;
+        String date = "";
         String dateFormat = "dd/MM/yy";
         long dt = (long) a * Constants.TIME_IN_MILLISECONDS;
 
@@ -104,7 +104,7 @@ public class Utils {
     }
 
     public static String getCurrentTemperature(double a) {
-        String temp = null;
+        String temp = "";
 
         temp = String.valueOf((int) a / 1) + (char) 0x00B0;
 
@@ -112,7 +112,7 @@ public class Utils {
     }
 
     public static String getTemperature(double a, double b) {
-        String temp = null;
+        String temp = "";
 
         temp = String.valueOf((int) a / 1) + (char) 0x00B0 + " - " + String.valueOf((int) b / 1) + (char) 0x00B0;
 
