@@ -29,6 +29,7 @@ public class DetailActivity extends Activity {
     private TextView detailRain;
     private TextView detailWind;
     private TextView detailCloud;
+    private TextView detailDesc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class DetailActivity extends Activity {
         detailWind = (TextView) findViewById(R.id.detail_wind);
         detailCloud = (TextView) findViewById(R.id.detail_cloud);
         date = (TextView) findViewById(R.id.detail_date);
+        detailDesc = (TextView)findViewById(R.id.detail_desc);
 
         Intent intent = getIntent();
         detailImage.setImageDrawable(Utils.getImage(intent.getStringExtra("img"), this));
@@ -55,10 +57,12 @@ public class DetailActivity extends Activity {
         tempNight.setText(Utils.getCurrentTemperature(intent.getDoubleExtra("tempNight", 0)));
         tempMorning.setText(Utils.getCurrentTemperature(intent.getDoubleExtra("tempMorn", 0)));
         detailTemp.setText(Utils.getCurrentTemperature(intent.getDoubleExtra("tempMax", 0)));
-        detailCloud.setText(String.valueOf(intent.getIntExtra("cloud", 0)));
-        detailHamidity.setText(String.valueOf(intent.getIntExtra("hamidity", 0)));
-        detailWind.setText(String.valueOf(intent.getDoubleExtra("wind", 0)));
-        detailRain.setText(String.valueOf(intent.getDoubleExtra("rain", 0)));
+        detailCloud.setText(String.valueOf(intent.getIntExtra("cloud", 0) + getString(R.string.percent_unit)));
+        detailPresure.setText(String.valueOf(intent.getDoubleExtra("pressure",0)) + getString(R.string.pressure_unit));
+        detailHamidity.setText(String.valueOf(intent.getIntExtra("hamidity", 0)) + getString(R.string.percent_unit));
+        detailWind.setText(String.valueOf(intent.getDoubleExtra("wind", 0)) + getString(R.string.wind_unit));
+        detailRain.setText(String.valueOf(intent.getDoubleExtra("rain", 0)) + getString(R.string.percent_unit));
+        detailDesc.setText(intent.getStringExtra("desc"));
 
         city.setText(preferences.getString("city", "Киев"));
     }

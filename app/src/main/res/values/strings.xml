@@ -62,4 +62,9 @@
     <string name="night_temp">Температура ночью:</string>
     <string name="morn_night">Температура утром:</string>
 
+    <string name="pressure_unit"> мм. рт. ст</string>
+    <string name="percent_unit"> %</string>
+    <string name="wind_unit"> м/с</string>
+
+
 </resources>
