@@ -78,7 +78,6 @@ public class CurrentWeatherFragment extends Fragment implements CurrentWeatherIn
 //        preferences = PreferenceManager.getDefaultSharedPreferences(context);
 
         preferences = getActivity().getSharedPreferences(Constants.SETTINGS, Context.MODE_PRIVATE);
-
         currentWeatherPresenter = new CurrentWeatherPresenter(this);
 
         return v;

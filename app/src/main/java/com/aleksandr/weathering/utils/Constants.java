@@ -14,7 +14,4 @@ public class Constants {
     public static final int SECONDS_IN_DAY = 86_400;
 
     public static final String IDS = "efcd21a8f54d97e56e01daa36cd6a4ce";
-
-
-
 }

@@ -63,6 +63,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherHolder> {
 //                overridePendingTransition(R.anim.anim_2, R.anim.anim_1);
             }
         });
+
         Picasso.with(context)
                 .load("http://openweathermap.org/img/w/" + main.getImg() + ".png")
                 .resize(Constants.IMAGE_SIZE,Constants.IMAGE_SIZE)
