@@ -64,6 +64,6 @@ public class DetailActivity extends Activity {
         detailRain.setText(String.valueOf(intent.getDoubleExtra("rain", 0)) + getString(R.string.percent_unit));
         detailDesc.setText(intent.getStringExtra("desc"));
 
-        city.setText(preferences.getString("city", "Киев"));
+        city.setText(preferences.getString("city", getString(R.string.default_city)));
     }
 }

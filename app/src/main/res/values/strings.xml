@@ -66,5 +66,7 @@
     <string name="percent_unit"> %</string>
     <string name="wind_unit"> м/с</string>
 
+    <string name="default_city">Киев</string>
+
 
 </resources>

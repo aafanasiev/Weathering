@@ -44,10 +44,10 @@ public class DataModule {
 
     protected OkHttpClient getOkHttpClient(){
         OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
-                builder.readTimeout(15, TimeUnit.SECONDS);
-                builder.connectTimeout(10,TimeUnit.SECONDS);
-                builder.writeTimeout(10,TimeUnit.SECONDS);
-        int cacheSize = 10 * 1024 * 1024;
+                builder.readTimeout(Constants.TIMEOUT, TimeUnit.SECONDS);
+                builder.connectTimeout(Constants.TIMEOUT,TimeUnit.SECONDS);
+                builder.writeTimeout(Constants.TIMEOUT,TimeUnit.SECONDS);
+        int cacheSize = Constants.CACHE_SIZE;
         Cache cache = new Cache(context.getCacheDir(),cacheSize);
         builder.cache(cache);
         OkHttpClient client = builder.build();

@@ -11,6 +11,7 @@ import com.aleksandr.weathering.R;
 import com.aleksandr.weathering.model.allWeather.WeatherMain;
 import com.aleksandr.weathering.ui.activities.DetailActivity;
 import com.aleksandr.weathering.ui.viewHolders.WeatherHolder;
+import com.aleksandr.weathering.utils.Constants;
 import com.aleksandr.weathering.utils.Utils;
 import com.squareup.picasso.Picasso;
 
@@ -64,7 +65,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherHolder> {
         });
         Picasso.with(context)
                 .load("http://openweathermap.org/img/w/" + main.getImg() + ".png")
-                .resize(150, 150)
+                .resize(Constants.IMAGE_SIZE,Constants.IMAGE_SIZE)
                 .into(holder.img);
     }
 

@@ -95,8 +95,8 @@ public class CurrentWeatherFragment extends Fragment implements CurrentWeatherIn
 
         curTemp.setText(Utils.getCurrentTemperature(weatherMainCurrent.getTemperature()));
         curDesc.setText(weatherMainCurrent.getDescription());
-        curWind.setText("Ветер: " + String.valueOf(weatherMainCurrent.getWind()) + "м/с");
-        curHumidity.setText("Влажность: "+ String.valueOf(weatherMainCurrent.getHumidity()) + "%");
+        curWind.setText("Ветер: " + String.valueOf(weatherMainCurrent.getWind()) + getString(R.string.wind_unit));
+        curHumidity.setText("Влажность: "+ String.valueOf(weatherMainCurrent.getHumidity()) + getString(R.string.percent_unit));
         curDate.setText(Utils.getDate(weatherMainCurrent.getDate()));
         curDay.setText(Utils.getDay(weatherMainCurrent.getDate(), getContext()));
         Utils.getImage(weatherMainCurrent.getImage(), context);

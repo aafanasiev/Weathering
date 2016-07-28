@@ -10,6 +10,7 @@ import android.util.Log;
 import com.aleksandr.weathering.model.allWeather.WeatherMain;
 import com.aleksandr.weathering.model.dataBase.Contract;
 import com.aleksandr.weathering.model.dataBase.DataBaseHelper;
+import com.aleksandr.weathering.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,7 @@ public class TimeOutCacheLife {
     }
 
     private void cleanCache(Context context) {
-        manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 3 * 60 * 60 * 1000, 3 * 60 * 60 * 1000, WeatherReceiver.makeReceiver(context));
+        manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + Constants.CLEAR_CACHE, Constants.CLEAR_CACHE, WeatherReceiver.makeReceiver(context));
     }
 
     public void putData(List<WeatherMain> lists) {
